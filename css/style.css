@@ -15,6 +15,19 @@ Balón: #e4c79f
     margin-left: 10px;
 }
 
+/*Pagina REGISTER =================================================================================================== */
+
+.card{
+    word-wrap: unset;
+    margin-top: 3.8em;
+    margin-bottom: 5%;
+    padding: 2em;
+    background-color: rgba(255, 255, 255, .9);
+}
+
+/*=================================================================================================================== */
+
+
 /* Cabecera NAV =====================================================================================================*/
 
 /*.navbar-dark{
@@ -209,17 +222,48 @@ Balón: #e4c79f
 /* Cuerpo de la página HOME ========================================================================================= */
 
 .container{
-    top: 5rem;
+    max-width: unset;
+    width: 96%;
+    height: auto;
 }
-
 header{
     margin-top: 20px;
     justify-items: left;
 }
-
-
 .navbar-nav{
     flex-direction: row;
 }
+
+.contenidoPrincipal{
+    margin: 0.2em 0.2em;
+}
+.card-Clasificacion{
+    padding: 0em;
+}
+.card-header{
+    background: #004985;
+    color: white;
+}
+.table{
+    color: #01233f;
+    margin-bottom: unset;
+}
+.table thead th{
+    border-top: 2px solid #01233f;
+    border-bottom: 2px solid #01233f;
+}
+.imgClasificacion{
+    width: 20px;
+}
+.centrarEscudo{
+    position: relative;
+    align-items: center;
+}
+/*=================================================================================================================== */
+
+
+/*Pagina CREAR EQUIPO =================================================================================================== */
+
+
 
 /*=================================================================================================================== */

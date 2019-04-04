@@ -11,37 +11,131 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <!-- Custom styles for this template -->
-    <style>
-        body {
-            padding-top: 5rem;
-        }
-
-        .starter-template {
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-    </style>
   </head>
 
   <body>
-  <button id="btn-abrir-popup">
-    ABRIR VENTANA EMERGENTE
-  </button>
     <div class="container">
-      <div class="overlay" id="overlay">
-        <div class="popup" id="popup">
-          <a href="#" class="btn-cerrar-popup"></a>
-          <h3>¿Estas seguro que desea salir?</h3>
-          <form action="">
-            <div class="contenedor-inputs">
-              <input type="button" class="btn-salir" value="Salir" formaction="index.html">
-              <a href="#" id="btn-cerrar-popup"><input type="button" class="btn-salir" value="Mantenerse"></a>
+        <div class="col-md-12">
+            <div class="card card-Clasificacion">
+                <div class="card-header">
+                    <h4 class="card-title">Clasificación Inter-Liga 1</h4>
+                    <p class="card-category">Here is a subtitle for this table</p>
+                </div>
+                <div class="card-body table-full-width table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr><th class="thClasificacion">Pos.</th>
+                            <th class="thClasificacion">Escudo</th>
+                            <th class="thClasificacion">Nombre</th>
+                            <th class="thClasificacion">Pts</th>
+                            <th class="thClasificacion">PJ</th>
+                            <th class="thClasificacion">G</th>
+                            <th class="thClasificacion">E</th>
+                            <th class="thClasificacion">P</th>
+                            <th class="thClasificacion">GF</th>
+                            <th class="thClasificacion">GC</th>
+                            <th class="thClasificacion">DG</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr class="success">
+                            <td>1</td>
+                            <td><img src="../images/escudos/escudo1.svg" class="imgClasificacion"> </td>
+                            <td>Real Teleco F.C.</td>
+                            <td>16</td>
+                            <td>7</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>30</td>
+                            <td>16</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><img src="../images/escudos/escudo2.svg" class="imgClasificacion"></td>
+                            <td>C.D. TelecosLeganes</td>
+                            <td>14</td>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>28</td>
+                            <td>16</td>
+                            <td>12</td>
+                        </tr>
+                        <tr class="info">
+                            <td>3</td>
+                            <td><img src="../images/escudos/escudo3.png" class="imgClasificacion"></td>
+                            <td>InfoCojos P.C.</td>
+                            <td>13</td>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>25</td>
+                            <td>18</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><img src="../images/escudos/escudo6.svg" class="imgClasificacion"></td>
+                            <td>Aero-Nauticos UPM</td>
+                            <td>12</td>
+                            <td>6</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>23</td>
+                            <td>16</td>
+                            <td>7</td>
+                        </tr>
+                        <tr class="danger">
+                            <td>5</td>
+                            <td><img src="../images/escudos/escudo7.png" class="imgClasificacion"></td>
+                            <td>Audiovisuales F.C.</td>
+                            <td>8</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>20</td>
+                            <td>25</td>
+                            <td>-5</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><img src="../images/escudos/escudo4.png" class="imgClasificacion"></td>
+                            <td>ADESEW Team</td>
+                            <td>7</td>
+                            <td>6</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>14</td>
+                            <td>26</td>
+                            <td>-12</td>
+                        </tr>
+                        <tr class="warning">
+                            <td>7</td>
+                            <td><img src="../images/escudos/escudo5.svg" class="imgClasificacion"></td>
+                            <td>MagisFut URJC</td>
+                            <td>7</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>6</td>
+                            <td>11</td>
+                            <td>30</td>
+                            <td>-19</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
     </div><!-- /.container -->
 
 
@@ -56,8 +150,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
     <!-- Holder.js for placeholder images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
-
-    <script src="../js/popup.js"></script>
 
   </body>
 </html>
