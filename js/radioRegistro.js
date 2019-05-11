@@ -8,9 +8,9 @@ function redirect(){
         }
     }
     if(i===0){
-        url = "../html/crearEquipo.html";
+        url = "../php/procesaRegistro.php";
     }else {
-        url= "../html/unirseEquipo.html";
+        url= "../php/searchTeam.php";
     }
 }
 

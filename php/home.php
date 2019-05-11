@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="../images/logos/IL.png">
+    <title>Inter-Liga</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css" >
+
+</head>
+
+<body style="padding-top: 4em">
+<?php
+$username = $_GET["username"];
+/*
+$name = "SELECT Name FROM usuarios WHERE Username = $username";
+$surname = "SELECT Surname FROM usuarios WHERE Username = $username";
+$teamName = "SELECT TeamName FROM usuarios WHERE Username = $username";
+*/
+?>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+    <div class="cuadrar">
+        <a class="navbar-brand font-weight-bold" href="home.php">
+            <img src="../images/logos/ILclarito(2).png" class="imagen-cabecera">
+            Inter-Liga</a>
+    </div>
+
+    <button style="margin-right: 50%" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse items-navbar" style="margin-left: 3em;" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto justify-content-around">
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Clasificación</label></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Goleadores</label></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Partidos</label></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Equipo</label></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="user-info">
+        <img src="../images/user.png" class="imagen-cabecera-user">
+        <div class="datos-cabecera">
+            <label class="label-cabecera"><?php echo $username ?></label></br>
+            <label class="label-cabecera">Nombre de equipo</label></br>
+            <a href="#"><button class="btn-sm" id="btn-abrir-popup"><img src="../images/logout.png" class="btn-logout">  Cerrar sesión</button></a>
+        </div>
+    </div>
+
+</nav>
+
+<main class="container">
+
+    <div class="contenidoPrincipal">
+        <div class="col-md-12">
+            <div class="card card-Clasificacion">
+                <div class="card-header">
+                    <h4 class="card-title">Clasificación Inter-Liga 1</h4>
+                    <p class="card-category"></p>
+                </div>
+                <div class="card-body table-full-width table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr><th class="thClasificacion">Pos.</th>
+                            <th class="thClasificacion">Escudo</th>
+                            <th class="thClasificacion">Nombre</th>
+                            <th class="thClasificacion">Pts</th>
+                            <th class="thClasificacion">PJ</th>
+                            <th class="thClasificacion">G</th>
+                            <th class="thClasificacion">E</th>
+                            <th class="thClasificacion">P</th>
+                            <th class="thClasificacion">GF</th>
+                            <th class="thClasificacion">GC</th>
+                            <th class="thClasificacion">DG</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr class="success">
+                            <td>1</td>
+                            <td><img src="../images/escudos/escudo1.svg" class="imgClasificacion"> </td>
+                            <td>Real Teleco F.C.</td>
+                            <td>16</td>
+                            <td>7</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>30</td>
+                            <td>16</td>
+                            <td>14</td>
+                        </tr>
+                        <tr class="info">
+                            <td>2</td>
+                            <td><img src="../images/escudos/escudo2.svg" class="imgClasificacion"></td>
+                            <td>C.D. TelecosLeganes</td>
+                            <td>14</td>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>28</td>
+                            <td>16</td>
+                            <td>12</td>
+                        </tr>
+                        <tr class="info">
+                            <td>3</td>
+                            <td><img src="../images/escudos/escudo3.png" class="imgClasificacion"></td>
+                            <td>InfoCojos P.C.</td>
+                            <td>13</td>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>25</td>
+                            <td>18</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><img src="../images/escudos/escudo6.svg" class="imgClasificacion"></td>
+                            <td>Aero-Nauticos UPM</td>
+                            <td>12</td>
+                            <td>6</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>23</td>
+                            <td>16</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><img src="../images/escudos/escudo7.png" class="imgClasificacion"></td>
+                            <td>Audiovisuales F.C.</td>
+                            <td>6</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>20</td>
+                            <td>25</td>
+                            <td>-5</td>
+                        </tr>
+                        <tr class="danger">
+                            <td>6</td>
+                            <td><img src="../images/escudos/escudo4.png" class="imgClasificacion"></td>
+                            <td>ADESEW Team</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>14</td>
+                            <td>26</td>
+                            <td>-12</td>
+                        </tr>
+                        <tr class="danger">
+                            <td>7</td>
+                            <td><img src="../images/escudos/escudo5.svg" class="imgClasificacion"></td>
+                            <td>MagisFut URJC</td>
+                            <td>2</td>
+                            <td>7</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>11</td>
+                            <td>30</td>
+                            <td>-19</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <h3>¿Seguro que desea salir?</h3>
+            <form action="">
+                <div class="contenedor-inputs">
+                    <a href="../index.php"><input type="button" class="btn-salir" value="Salir"></a>
+                    <a href="#" id="btn-cerrar-popup"><input type="button" class="btn-salir" value="Mantenerse"></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+<!-- Holder.js for placeholder images -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
+
+<script src="../js/popup.js"></script>
+</body>
