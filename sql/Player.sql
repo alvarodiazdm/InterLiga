@@ -2,8 +2,8 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 09-05-2019 a las 14:06:38
+-- Servidor: localhost
+-- Tiempo de generación: 12-05-2019 a las 10:59:11
 -- Versión del servidor: 10.3.14-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -19,21 +19,19 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `id9188101_departamentossql`
+-- Base de datos: `id9188101_departamentos`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `Player`
 --
 
-CREATE TABLE `usuarios` (
-  `Name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Surname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `UserName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+CREATE TABLE `Player` (
+  `Username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Number` int(11) NOT NULL,
+  `PlayerId` int(11) NOT NULL,
   `TeamName` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -42,12 +40,20 @@ CREATE TABLE `usuarios` (
 --
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `Player`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`UserName`),
-  ADD UNIQUE KEY `UNIQUEEMAIL` (`Email`),
-  ADD UNIQUE KEY `UNIQUETEAMNAME` (`TeamName`);
+ALTER TABLE `Player`
+  ADD PRIMARY KEY (`PlayerId`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `Player`
+--
+ALTER TABLE `Player`
+  MODIFY `PlayerId` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-05-2019 a las 10:58:23
+-- Tiempo de generación: 12-05-2019 a las 10:58:40
 -- Versión del servidor: 10.3.14-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -19,20 +19,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `id9188101_departamentos`
+-- Base de datos: ``
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `Equipos`
+-- Estructura de tabla para la tabla `League`
 --
 
-CREATE TABLE `Equipos` (
-  `TeamName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `League` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Escudo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Players` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+CREATE TABLE `League` (
+  `Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `Start` date NOT NULL DEFAULT current_timestamp() COMMENT 'La fecha es en formato aaaa-mm-dd',
+  `End` date NOT NULL DEFAULT current_timestamp() COMMENT 'La fecha es en formato aaaa-mm-dd',
+  `Place` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -40,20 +40,10 @@ CREATE TABLE `Equipos` (
 --
 
 --
--- Indices de la tabla `Equipos`
+-- Indices de la tabla `League`
 --
-ALTER TABLE `Equipos`
-  ADD PRIMARY KEY (`TeamName`);
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `Equipos`
---
-ALTER TABLE `Equipos`
-  ADD CONSTRAINT `Equipos_ibfk_1` FOREIGN KEY (`TeamName`) REFERENCES `Usuarios` (`TeamName`);
+ALTER TABLE `League`
+  ADD PRIMARY KEY (`Name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -37,17 +37,23 @@ $teamName = "SELECT TeamName FROM usuarios WHERE Username = $username";
     </button>
     <div class="collapse navbar-collapse items-navbar" style="margin-left: 3em;" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto justify-content-around">
-            <li class="nav-item">
-                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Clasificación</label></a>
+            <li class="nav-item dropdown">
+                <a class="nav-link font-weight-bold dropdown-toggle" data-toggle="dropdown"><label class="cabecera-item">Datos de mi liga</label></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Clasifición</a>
+                    <a class="dropdown-item" href="#">Goleadores</a>
+                    <a class="dropdown-item" href="#">Partidos</a>
+                </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Goleadores</label></a>
+                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Mi Equipo</label></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link font-weight-bold" href="createLeague.php"><label class="cabecera-item">Crear nueva Liga</label></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Partidos</label></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Equipo</label></a>
+                <a class="nav-link font-weight-bold" href="#"><label class="cabecera-item">Crear nuevo Jugador</label></a>
             </li>
         </ul>
     </div>
@@ -191,7 +197,7 @@ $teamName = "SELECT TeamName FROM usuarios WHERE Username = $username";
             <h3>¿Seguro que desea salir?</h3>
             <form action="">
                 <div class="contenedor-inputs">
-                    <a href="../index.php"><input type="button" class="btn-salir" value="Salir"></a>
+                    <a href="Logout.php"><input type="button" class="btn-salir" value="Salir"></a>
                     <a href="#" id="btn-cerrar-popup"><input type="button" class="btn-salir" value="Mantenerse"></a>
                 </div>
             </form>
