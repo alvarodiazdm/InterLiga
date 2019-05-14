@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../images/logos/IL.png">
-    <title>Registrarse</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Icons -->
-    <link href="../fonts/font-awesome.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../css/style.css" rel="stylesheet">
-</head>
+<?php include "../templates/header.php" ?>
 <body>
 <div class="container">
     <section class="row">
@@ -81,6 +65,10 @@
                                 <div class="custom-control custom-radio col-md-6">
                                     <input type="radio" id="customRadio2" name="botonRadio" value="2" class="custom-control-input">
                                     <label class="custom-control-label custom-control-description" for="customRadio2">Unirse a un equipo</label>
+                                </div>
+                                <div class="custom-control custom-radio col-md-6">
+                                    <input type="radio" id="customRadio3" name="botonRadio" value="3" class="custom-control-input">
+                                    <label class="custom-control-label custom-control-description" for="customRadio3">Saltar ese paso</label>
                                 </div>
                             </div>
                         </div>

@@ -1,31 +1,51 @@
 <?php
-/*
-$host_db = "localhost";
-$user_db = "root";
-$pass_db = "root";
-$db_name = "BBDDTEWC";
-$tbl_name = "Equipos";
 
-$conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
+require_once 'conectar.php';
 
-if($conexion->connect_error){
-    die("La conexión falló: " .$conexion->connect_error);
-}
-*/
-
-$username = $_REQUEST["username"];
 $teamName = $_REQUEST["teamName"];
-/*
-$buscaTeamName = "Select * FROM $tbl_name WHERE TeamName = $teamName";
-$resultTeamName = $conexion->query($buscaTeamName);
-$count = mysqli_num_rows($resultTeamName);
+$number = $_REQUEST["number"];
 
-if($count==0){
+$comprobante = true;
+
+$busca = "Select * FROM equipos WHERE TeamName = '$teamName'";
+
+$fila = $db->prepare($busca);
+$fila->execute();
+$result = $fila->fetch(PDO::FETCH_ASSOC);
+
+if($result==null){
     $errorTeamName = "El nombre introducido no coincide con el de ningun equipo";
     header("Location: searchTeam.php?errorTeamName=$errorTeamName");
-}else{*/
+}else {
+    //CORRECTO
     //Meter al jugador en la base de datos
-    header("Location: home.php?username=$username");
-//}
+
+    $sql = "Select * FROM player WHERE TeamName = '$teamName'";
+
+    foreach($db->query($sql) as $fila2) {
+        if($fila2[1] == $number){
+            $comprobante = false;
+        }
+    }
+
+    if(!$comprobante){
+        $errorTeamName = "El numero introducido ya ha sido escogido por otro miembro del equipo";
+        header("Location: searchTeam.php?errorTeamName=$errorTeamName");
+    }else{
+        //CORRECTO
+        session_start();
+        $username = $_SESSION["username"];
+        $insert = "INSERT INTO player (Username, Number, TeamName) VALUES
+                  ('$username', '$number', '$teamName')";
+        if($db->query($insert)==TRUE){
+            session_start();
+            $_SESSION['username'] = $username;
+            header("Location: home.php");
+        } else {
+            $errorTeamName = "El usuario no se ha creado correctamente, pruebe de nuevo por favor.";
+            header("Location: searchTeam.php?errorTeamName=$errorTeamName");
+        }
+    }
+}
 
 ?>

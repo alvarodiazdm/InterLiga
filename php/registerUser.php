@@ -1,21 +1,14 @@
 <?php
-/*
-$host_db = "localhost";
-$user_db = "root";
-$pass_db = "root";
-$db_name = "BBDDTEWC";
-$tbl_name1 = "Equipos";
-$tbl_name2 = "usuarios";
 
-$conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
+require_once 'conectar.php';
 
-if($conexion->connect_error){
-    die("La conexión falló: " .$conexion->connect_error);
-}
-*/
-$username = $_REQUEST["username"];
+session_start();
+$username = $_SESSION["username"];
 $teamName = $_REQUEST["teamName"];
-$URL = null;
+
+//Añadir implementacion de escudo
+$escudo = null;
+$number = $_REQUEST["number"];
 
 function checkTeamName($tn){
     if($tn==null){
@@ -26,30 +19,30 @@ function checkTeamName($tn){
 
 if(!checkTeamName($teamName)){
     $errorName = "Debe introducir un nombre para su equipo.";
-    header("Location: crearEquipo.php?username=".$username);
+    header("Location: crearEquipo.php");//?username=".$username);
+} else{
+    $busca = "SELECT * FROM equipos WHERE TeamName = '$teamName'";
+    $fila = $db->query($busca);
+    $fila->execute();
+    $result = $fila->fetch(PDO::FETCH_ASSOC);
+
+    if($result != null){
+        echo "<br/>". "El nombre de equipo ya existe, <a href='crearEquipo.php'>escoja otro nombre</a>";
+    }else{
+        //CORRECTO
+        $query1 = "INSERT INTO equipos (TeamName,League,Escudo) VALUES ('$teamName', null, '$escudo')";
+        $query2 = "INSERT INTO player (Username, Number, TeamName) VALUES ('$username','$number', '$teamName')";
+
+        if($db->query($query1)==TRUE){
+            if($db->query($query2)==TRUE) {
+                header("Location: home.php");//?username=".$username);
+            }else {
+                echo "Error al crear usuario." . $query2 . "<br>" . $db->errorInfo();
+            }
+        }else{
+            echo "Error al crear usuario." . $query1 . "<br>" . $db->errorInfo();
+        }
+    }
 }
+//mysqli_close($conexion);
 
-/*
-$buscaTeamName = "SELECT * FROM $tbl_name WHERE TeamName = $teamName";
-$resultTeamName = $conexion->query($buscaTeamName);
-$count1 = mysqli_num_rows($resultTeamName);
-
-if($count1 == 1){
-    echo "<br/>". "El nombre de equipo ya existe, <a href='crearEquipo.php?username='.$username>escoja otro nombre</a>";
-}
-*/
-$URL = "https://interliga.com/" .  $teamName . "/unirse.php";
-
-/*
-$query = "INSERT INTO $tbl_name1 (TeamName, URL ,Escudo) VALUES
-              ('$teamName', '$URL', null)";
-$query2 = "INSERT INTO $tbl_name2 (TeamName) WHERE Username = '$username' VALUES ('$teamName');
-
-
-if($conexion ->query($query) === TRUE && $conexion ->query($query2) === TRUE{ */
-    header("Location: home.php?username=".$username);
-/*
-} else {
-    echo "Error al crear usuario." . $query . "<br>" . $conexion->error;
-}
-mysqli_close($conexion);*/

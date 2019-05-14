@@ -1,19 +1,7 @@
 <?php
 
-//Cuando implemente la BBDD, tengo que quitar los comentarios y comprobar si funciona correctamente.
-/*
-$host_db = "localhost";
-$user_db = "root";
-$pass_db = "root";
-$db_name = "BBDDTEWC";
-$tbl_name = "usuarios";
+require_once 'conectar.php';
 
-$conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
-
-if($conexion->connect_error){
-    die("La conexión falló: " .$conexion->connect_error);
-}
-*/
 $name = $_REQUEST["name"];
 $surname = $_REQUEST["surname"];
 $username = $_REQUEST["username"];
@@ -41,35 +29,34 @@ if(!checkRegister($username, $password, $repeatPass, $email)){
 }else if(!checkPass($password, $repeatPass)){
     $errorPass = "La contrasena debe ser la misma en ambos campos.";
     header("Location: register.php?errorPass=$errorPass");
-}else{
-   $hash = password_hash($password, PASSWORD_BCRYPT);
+}else {
+    //$hash = password_hash($password, PASSWORD_BCRYPT);
 
-/*
-    $buscaUsuario = "SELECT * FROM $tbl_name WHERE Username = $username";
-    $buscaEmail = "SELECT * FROM $tbl_name WHERE Email = $email";
+    $busca = "SELECT * FROM users WHERE Username = '$username' OR Email = '$email'";
 
-    $resultUserName = $conexion->query($buscaUsuario);
-    $count1 = mysqli_num_rows($resultUserName);
-    $resultEmail = $conexion->query($buscaEmail);
-    $count2 = mysqli_num_rows($resultEmail);
+    $fila = $db->prepare($busca);
+    $fila->execute();
+    $result = $fila->fetch(PDO::FETCH_ASSOC);
 
-    if($count1 == 1){
-        echo "<br/>". "El nombre de usuario ya existe, <a href='register.php'>escoja otro nombre</a>";
+    if ($result != null) {
+        echo "<br/>" . "El nombre de usuario o el email ya existe, <a href='register.php'>escoja otro</a>";
+    } else {
+        //echo "CORRECTO";
+        session_start();
+        $_SESSION["username"] = $username;
+        $query = "INSERT INTO users (Name, Surname, Username, Email, Password) VALUES
+              ('$name', '$surname', '$username', '$email', '$password')";
+        if($db->query($query) == TRUE){
+            if($radioButton==1) {
+                header("Location: crearEquipo.php");//?username=" . $username);
+            } else if($radioButton==2){
+                header("Location: searchTeam.php");//?username=".$username);
+            }else{
+                header("Location: ../index.php");
+            }
+        }else{
+            echo "Error al crear usuario." . $query . "<br>" . $db->errorInfo();
+        }
     }
-    if($count2 == 1) {
-        echo "<br/>". "El email ya ha sido registrado, <a href='register.php'>escoja otro</a>";
-    }
-    $query = "INSERT INTO $tbl_name (Name, Surname, Username, Password) VALUES
-              ('$name', '$surname', '$username', '$hash')";
-    if($conexion ->query($query) === TRUE){
- */
-    if($radioButton==2){
-        header("Location: searchTeam.php?username=".$username);
-    }else{
-        header("Location: crearEquipo.php?username=".$username);
-    }
-/*} else {
-    echo "Error al crear usuario." . $query . "<br>" . $conexion->error;
-}*/
 }
-//mysqli_close($conexion);
+//mysqli_close($db);

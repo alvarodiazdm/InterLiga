@@ -1,29 +1,17 @@
+<?php
+require_once 'restringido.php';
+$username = $_SESSION["username"];
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../images/logos/IL.png">
-    <title>Unirse equipo</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Icons -->
-    <link href="../fonts/font-awesome.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../css/style.css" rel="stylesheet">
-</head>
+<?php include "../templates/header.php" ?>
 <body>
 <div class="col-12">
     <div class="card">
         <div class="card-block">
             <h3 class="card-title">Datos del equipo:</h3>
             <form action="joinTeam.php">
-                <input type="hidden" name="username" value="<?php echo $_GET["username"] ?>" />
+                <!--<input type="hidden" name="username" value="<?php echo $username ?>" />-->
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label">Name: </label>
                     <div class="col-10">
@@ -33,7 +21,12 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label">Escoge un número de jugador:</label>
                     <div class="col-10">
-                        <input type="number" min="1" max="99" class="form-control" placeholder="Entre el 1 y el 99" required>
+                        <input type="number" name="number" min="1" max="99" class="form-control" placeholder="Entre el 1 y el 99" required>
+                        <?php if(isset($_REQUEST['errorTeamName'])): ?>
+                            <div style="color: darkred">
+                                <?php echo $_REQUEST['errorTeamName'] ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <button type="submit">Unirse</button>

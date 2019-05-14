@@ -12,27 +12,31 @@ $password = $_REQUEST['password'];
 
 require_once 'conectar.php';
 
-$sql = "SELECT Username, password FROM usuers WHERE Username = $username";
+$sql = "SELECT Username, Password FROM interligatewc.users WHERE interligatewc.users.Username = '$username'";
+$fila = $db->prepare($sql);
+$fila->execute();
 
+//En result tenemos el par Usuario - Contraseña que hay en la BBDD para comprobar si esta bien
+$result = $fila->fetch(PDO::FETCH_ASSOC);
 
+//$dbUsername = $result["Username"];
+//$dbPass = $result["Password"];
 
-
-
-function checkLogin($username, $password, $logins){
-    if (!isset($username) || !isset($password)){
+function checkLogin($username, $password, $res){
+    if (!isset($username) || !isset($password) || $password!==$res["Password"]){
         return false;
     }
-    return (array_key_exists($username, $logins)
-        && (strcmp($logins[$username],$password)==0));
+    return true;
+        //(array_key_exists($username, $res) && (strcmp($res[$username],$password)==0));
 }
 
 //Valido
-if(!checkLogin($username, $password,$logins)){
+if(!checkLogin($username, $password, $result)){
     session_destroy();
     $errorLogin = "El usuario o la contraseña son incorrectos.";
     header("Location: ../index.php?errorLogin=$errorLogin");
 }else {
     session_start();
-    //$_SESSION['username'] = $username;
-    header("Location: /Interliga/php/home.php?username=$username");
+    $_SESSION['username'] = $username;
+    header("Location: home.php");
 }

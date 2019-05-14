@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/sql/Equipos.sql" dialect="MariaDB" />
-    <file url="file://$PROJECT_DIR$/sql/League.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/sql/Player.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/sql/id9188101_departamentos.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/sql/equipos.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/sql/league.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/sql/player.sql" dialect="MySQL" />
+    <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>
