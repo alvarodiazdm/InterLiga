@@ -1,7 +1,7 @@
 <?php
 
 	$dbhost = "localhost";
-	$dbname = "**********"; //Rellenar despues de crear la BBDD
+	$dbname = "interligatewc" //Rellenar despues de crear la BBDD
 	$dbpass = "***********"; //Rellenar despues de crear la BBDD
 	$dbuser = "********"; //Rellenar despues de crear la BBDD
 	try {
